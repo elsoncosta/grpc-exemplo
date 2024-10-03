@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcClienteService";
+
+// Define o tipo de mensagem Cliente
+message Cliente {
+    int32 id = 1;
+    string nome = 2;
+    string email = 3;
+}
+
+// Define o serviço gRPC para manipular clientes
+service ClienteService {
+    rpc CreateCliente (Cliente) returns (ClienteResponse);
+}
+
+// Define a resposta do serviço
+message ClienteResponse {
+    bool sucesso = 1;
+    string mensagem = 2;
+}
